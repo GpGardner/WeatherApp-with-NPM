@@ -3,4 +3,13 @@
     background-color: maroon;
     color: white;
     display: grid;
+    text-shadow: 5px 3px 10px black;
+    text-align: center;
+}
+
+#weatherImg {
+    width: 100px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
 }
