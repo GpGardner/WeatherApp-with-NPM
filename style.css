@@ -1,0 +1,6 @@
+#card {
+    border: 2px solid gray;
+    background-color: maroon;
+    color: white;
+    display: grid;
+}
