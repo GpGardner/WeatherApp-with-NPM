@@ -9,8 +9,9 @@ $(document).ready($('#search').on('keyup', (event) => {
 
 
 async function getWeather(){
-     const zipCode = getZip();
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zipCode}&appid=818039c2c15cea97465604f0ede2a026`);
+  let api_key = config.openWapiKey;
+    const zipCode = getZip();
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zipCode}&appid=${api_key}`);
     const weather = await response.json();
     console.log(weather);
     display(weather);
@@ -32,7 +33,8 @@ function display(weather){
 }
 
 async function getTimeZone(lat, lon){
-  const response = await fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=0FBW9WPXRUYU&format=json&by=position&lat=${lat}&lng=${lon}`)
+  let apiKey = config.latapiKey;
+  const response = await fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lon}`)
   const timeZone = await response.json();
   console.log(timeZone)
   getTime(timeZone);
