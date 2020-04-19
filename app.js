@@ -5,17 +5,18 @@ $(document).ready($('#search').on('keyup', (event) => {
   }
 }));
 
-
-
-
 async function getWeather(){
   let api_key = config.openWapiKey;
     const zipCode = getZip();
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zipCode}&appid=${api_key}`);
-    const weather = await response.json();
-    console.log(weather);
-    display(weather);
-}
+    try {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=${zipCode}&appid=${api_key}`);
+      const weather = await response.json();
+      console.log(weather);
+      display(weather);
+    } catch(err) {
+        alert('Please enter a valid Zip Code'); // TypeError: failed to fetch
+    }
+  }
 
 function display(weather){
     const city = weather.name;
